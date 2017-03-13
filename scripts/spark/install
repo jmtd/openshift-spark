@@ -5,6 +5,17 @@ set -e
 SCRIPT_DIR=$(dirname $0)
 ADDED_DIR=${SCRIPT_DIR}/added
 
+DISTRO_LOC=https://dist.apache.org/repos/dist/release/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
+DISTRO_NAME=spark-2.1.0-bin-hadoop2.7
+
+# unpack the spark tools
+{
+    cd /tmp/scripts/sources
+    tar xz "$DISTRO_NAME.tgz"
+    mv "$DISTRO_NAME" /opt
+    ln -s "/opt/$DISTRO_NAME" "/opt/spark"
+}
+
 mv $ADDED_DIR/entrypoint /
 chmod +x /entrypoint
 
