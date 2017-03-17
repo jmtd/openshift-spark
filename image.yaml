@@ -1,15 +1,16 @@
+version: 0.1
+release: 1
 name: openshift-spark
 from: centos:latest
 user: 185
 maintainer: Matthew Farrellee <matt@cs.wisc.edu>
 workdir: /tmp # user can write here; useful for spark-shell etc. which write to $PWD
-entrypoint: "/entrypoint"
-cmd: "/opt/spark/bin/launch.sh"
+entrypoint:
+ - "/entrypoint"
+cmd:
+ - "/opt/spark/bin/launch.sh"
 packages:
- - epel-release
- - tar
  - java
- - nss_wrapper # provides LD_PRELOAD way to modify passwd and hosts as uid ≠ 0
  - numpy
 sources:
  - url: https://dist.apache.org/repos/dist/release/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
@@ -17,7 +18,9 @@ sources:
 scripts:
     - package: spark
       exec: install
-environment:
+    - package: epel-nss # provides LD_PRELOAD way to modify passwd and hosts as uid ≠ 0
+      exec: install
+envs:
   information:
     - name: PATH
       value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/spark/bin
