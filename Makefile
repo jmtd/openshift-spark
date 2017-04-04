@@ -9,7 +9,7 @@ SPARK_IMAGE=mattf/openshift-spark
 .PHONY: build clean push create destroy run_dogen
 
 run_dogen: out
-	docker run -it --rm -v $(shell pwd):/tmp/blah:z dogen:latest \
+	docker run -i --rm -v $(shell pwd):/tmp/blah:z dogen:latest \
 		--verbose \
 		/tmp/blah/image.yaml /tmp/blah/out
 
