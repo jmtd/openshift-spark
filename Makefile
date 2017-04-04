@@ -6,7 +6,15 @@ SPARK_IMAGE=mattf/openshift-spark
 
 # SPARK_IMAGE=172.30.242.71:5000/myproject/openshift-spark
 
-.PHONY: build clean push create destroy
+.PHONY: build clean push create destroy run_dogen
+
+run_dogen: out
+	docker run -it --rm -v $(shell pwd):/tmp/blah:z dogen:latest \
+		--verbose \
+		/tmp/blah/image.yaml /tmp/blah/out
+
+out:
+	mkdir -p out
 
 build:
 	docker build -t $(LOCAL_IMAGE) .
