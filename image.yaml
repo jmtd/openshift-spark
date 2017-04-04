@@ -1,7 +1,7 @@
 version: 0.1
 release: 1
 name: openshift-spark
-from: centos:latest
+from: rhel7:latest
 user: 185
 maintainer: Matthew Farrellee <matt@cs.wisc.edu>
 workdir: /tmp # user can write here; useful for spark-shell etc. which write to $PWD
