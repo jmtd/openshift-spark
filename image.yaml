@@ -10,7 +10,7 @@ entrypoint:
 cmd:
  - "/opt/spark/bin/launch.sh"
 packages:
- - java
+ - java-1.8.0-openjdk
  - numpy
 sources:
  - url: https://dist.apache.org/repos/dist/release/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
