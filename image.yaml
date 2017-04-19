@@ -1,6 +1,6 @@
-version: 0.1
-release: 1
-name: spark2.1-hadoop2.7-openshift
+version: 1.0
+release: dev
+name: redhat-radanalytics-1-alpha/spark2.1-hadoop2.7-openshift
 from: rhel7:7.3-released
 user: 185
 maintainer: Matthew Farrellee <matt@cs.wisc.edu>
