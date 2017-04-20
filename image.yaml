@@ -1,7 +1,7 @@
 version: 1.0
 release: dev
 name: redhat-radanalytics-1-tech-preview/spark2.1-hadoop2.7-openshift
-from: rhel7:7.3-released
+from: redhat-openjdk-18/openjdk18-openshift:1.0-2
 user: 185
 maintainer: Matthew Farrellee <matt@cs.wisc.edu>
 workdir: /tmp # user can write here; useful for spark-shell etc. which write to $PWD
