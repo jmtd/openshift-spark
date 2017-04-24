@@ -17,6 +17,8 @@ sources:
 scripts:
     - package: spark
       exec: install
+    - package: epel-nss # provides LD_PRELOAD way to modify passwd and hosts as uid ≠ 0
+      exec: install
 envs:
   information:
     - name: PATH
