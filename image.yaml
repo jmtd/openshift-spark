@@ -1,6 +1,6 @@
 version: 1.0
 release: dev
-name: redhat-radanalytics-1-tech-preview/spark2.1-hadoop2.7-openshift
+name: redhat-radanalytics-1-tech-preview/radanalytics10-spark21-hadoop27-openshift
 from: redhat-openjdk-18/openjdk18-openshift:1.0
 user: 185
 maintainer: Matthew Farrellee <matt@cs.wisc.edu>
@@ -10,15 +10,12 @@ entrypoint:
 cmd:
  - "/opt/spark/bin/launch.sh"
 packages:
- - java-1.8.0-openjdk
  - numpy
 sources:
  - url: https://dist.apache.org/repos/dist/release/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
    md5sum: 50E73F255F9BDE50789AD5BD657C7A71
 scripts:
     - package: spark
-      exec: install
-    - package: epel-nss # provides LD_PRELOAD way to modify passwd and hosts as uid ≠ 0
       exec: install
 envs:
   information:
